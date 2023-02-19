@@ -14,19 +14,19 @@ gallery.innerHTML = galleryElements;
 // Evento de click a cada imagen
 const images = gallery.querySelectorAll(".gallery__image");
 images.forEach(image => {
-    image.addEventListener("click", event => {
-        event.preventDefault();
-        const source = image.dataset.source;
-        const title = image.alt;
-        const lightbox = basicLightbox.create(`<img src="${source}" alt="${title}">`);
-        lightbox.show();
-    });
+  image.addEventListener("click", event => {
+    event.preventDefault();
+    const source = image.closest('.gallery__item').href;
+    const title = image.alt;
+    const lightbox = basicLightbox.create(`<img src="${source}" alt="${title}">`);
+    lightbox.show();
+  });
 });
 
 // Inicio de la biblioteca SimpleLightbox
 const lightbox = new SimpleLightbox('.gallery a', {
-    captions: true, // Mostrar subtítulos
-    captionDelay: 250 // Retraso de 250 milisegundos para mostrar el subtítulo
+  captions: true, // Mostrar subtítulos
+  captionDelay: 250 // Retraso de 250 milisegundos para mostrar el subtítulo
 });
 
 console.log(lightbox);

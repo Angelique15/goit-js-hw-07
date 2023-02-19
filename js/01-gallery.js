@@ -15,12 +15,13 @@ const images = gallery.querySelectorAll(".gallery__image");
 images.forEach(image => {
   image.addEventListener("click", event => {
     event.preventDefault();
-    const source = image.dataset.source;
+    const source = image.closest('.gallery__item').href;
     const title = image.alt;
     const lightbox = basicLightbox.create(`<img src="${source}" alt="${title}">`);
     lightbox.show();
   });
 });
+
 console.log(galleryItems);
 
 
